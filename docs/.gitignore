@@ -1,6 +1,4 @@
 *.psd
-dist
-.cache
 node_modules
 .*.swp
 ._*

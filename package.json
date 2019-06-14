@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/parcel src/index.html",
-    "clear": "rm -rf dist",
-    "build": "yarn clear && ./node_modules/.bin/parcel build --no-source-maps src/index.html"
+    "start": "./node_modules/.bin/parcel index.html",
+    "clear": "rm -rf docs",
+    "build:html": "./node_modules/.bin/parcel build --no-source-maps --out-dir docs index.html",
+    "build": "yarn clear && yarn build:html"
   },
   "devDependencies": {
     "codemirror": "^5.47.0",

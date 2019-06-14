@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>FE Formatter</title>
-    <!-- <link rel="stylesheet" href="//code.bdstatic.com/npm/@wtdf/joshua@0.0.12/dist/joshua.min.css"> -->
-    <link rel="stylesheet" href="//unpkg.com/@wtdf/joshua@0.0.12/dist/joshua.min.css">
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="//code.bdstatic.com/npm/@wtdf/joshua@0.0.12/dist/joshua.min.css">
     <style>
     .btn, .select { margin-bottom: 0; }
 
     #editor .CodeMirror {
         font-family: var(--font-mono), monospace;
         border: 1px solid #ddd;
+        height: auto;
         height: 70vh;
     }
 
@@ -46,22 +45,16 @@
                     <input type="checkbox" id="single-quote" name="single-quote" checked>
                     <label for="single-quote">Single quote</label>
                 </span>
-            </div>　
-            <!-- <span>
-                <label for="indent-size">Indent Size</label>
-                <select id="indent-size" class="select">
-                    <option value="2">2</option>
-                    <option value="2">4</option>
-                </select>
-            </span> -->
+            </div>
         </div>
         <br>
         <div id="editor"></div>
     </div>
 
-    <script src="//unpkg.com/prettier@1.13.0/standalone.js"></script>
-    <script src="//unpkg.com/prettier@1.13.0/parser-babylon.js"></script>
-    <script src="./index.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.13.0/standalone.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.13.0/parser-babylon.js"></script>
+    <!-- <script src="./dist/index.js"></script> -->
+    <script src="./src/index.js"></script>
 
 </body>
 </html>
