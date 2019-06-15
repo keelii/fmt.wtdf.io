@@ -5,7 +5,7 @@
     <title>FE Formatter</title>
     <link rel="stylesheet" href="//code.bdstatic.com/npm/@wtdf/joshua@0.0.12/dist/joshua.min.css">
     <style>
-    .btn, .select { margin-bottom: 0; }
+    .btn, .select, .input { margin-bottom: 0; vertical-align: middle; }
 
     #editor .CodeMirror {
         font-family: var(--font-mono), monospace;
@@ -32,20 +32,24 @@
                 <button class="btn" onclick="format(editor)">Format</button>　
                 <button class="btn outline" onclick="clearContent()">clear</button>　
             </span>
-            <div>
+            <form id="fmt-form">
                 <span class="custom-input">
-                    <input type="checkbox" id="indent-space" name="indent-space" checked>
-                    <label for="indent-space">Indent use Space</label>
+                    <input type="checkbox" id="use-tabs" name="use-tabs">
+                    <label for="use-tabs">Use tabs</label>
                 </span>　
                 <span class="custom-input">
-                    <input type="checkbox" id="no-semi" name="no-semi" checked>
-                    <label for="no-semi">No semi</label>
+                    <input type="checkbox" id="semi" name="semi">
+                    <label for="semi">Semi</label>
                 </span>　
                 <span class="custom-input">
                     <input type="checkbox" id="single-quote" name="single-quote" checked>
                     <label for="single-quote">Single quote</label>
+                </span>　
+                <span>
+                    <label for="tab-width">Tab width </label>
+                    <input style="width:4em" class="input" type="number" value="4" id="tab-width" name="tab-width">
                 </span>
-            </div>
+            </form>
         </div>
         <br>
         <div id="editor"></div>
