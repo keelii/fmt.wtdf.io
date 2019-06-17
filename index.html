@@ -33,6 +33,20 @@
                 <button class="btn outline" onclick="clearContent()">clear</button>　
             </span>
             <form id="fmt-form">
+                <span>
+                    <select onchange="changeMode(this)" class="select" name="parser" id="parser">
+                        <option value="babel">babel</option>
+                        <option value="css">css</option>
+                        <option value="less">less</option>
+                        <option value="scss">scss</option>
+                        <option value="json">json</option>
+                        {# <option value="json-stringify">json-stringify</option> #}
+                        <option value="markdown">markdown</option>
+                        <!-- <option value="mdx">mdx</option> -->
+                        <!-- <option value="vue">vue</option> -->
+                        <option value="html">html</option>
+                    </select>　
+                </span>
                 <span class="custom-input">
                     <input type="checkbox" id="use-tabs" name="use-tabs">
                     <label for="use-tabs">Use tabs</label>
@@ -45,18 +59,21 @@
                     <input type="checkbox" id="single-quote" name="single-quote" checked>
                     <label for="single-quote">Single quote</label>
                 </span>　
-                <span>
+                <!-- <span>
                     <label for="tab-width">Tab width </label>
                     <input style="width:4em" class="input" type="number" value="4" id="tab-width" name="tab-width">
-                </span>
+                </span> -->
             </form>
         </div>
         <br>
         <div id="editor"></div>
     </div>
 
-    <script src="//code.bdstatic.com/npm/prettier@1.13.0/standalone.js"></script>
-    <script src="//code.bdstatic.com/npm/prettier@1.13.0/parser-babylon.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.18.0/standalone.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.18.0/parser-babylon.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.18.0/parser-markdown.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.18.2/parser-html.js"></script>
+    <script src="//code.bdstatic.com/npm/prettier@1.18.2/parser-postcss.js"></script>
     <!-- <script src="./dist/index.js"></script> -->
     <script src="./src/index.js"></script>
 

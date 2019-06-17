@@ -1,4 +1,5 @@
 import codemirror from 'codemirror'
+import { toCamelCase } from './utils.js'
 
 require('../node_modules/codemirror/lib/codemirror.css')
 
@@ -30,16 +31,25 @@ let editor = window.editor = codemirror(document.getElementById('editor'), {
     gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
 })
 
-const toCamelCase = str => {
-    let s = str && str
-        .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-        .map(x => x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase())
-        .join('')
-    return s.slice(0, 1).toLowerCase() + s.slice(1)
+window.changeMode = function(el) {
+    const modeMap = {
+        'babel': 'javascript',
+        'css': 'text/x-css',
+        'scss': 'text/x-scss',
+        'less': 'text/x-less',
+        'html': 'htmlmixed',
+        'json': 'application/ld+json',
+        'json-stringify': 'application/ld+json',
+        'markdown': 'markdown'
+    }
+    const mode = modeMap[el.value]
+    if (mode) {
+        editor.setOption('mode', mode)
+    }
 }
 
 window.fmtOption = function() {
-    let input = document.querySelectorAll('#fmt-form input')
+    let input = document.querySelectorAll('#fmt-form [name]')
     let params = {}
     input.forEach(inp => {
         let name = inp.getAttribute('name')
@@ -55,17 +65,23 @@ window.fmtOption = function() {
 window.format = function(cm) {
     let options = fmtOption()
     let defaults = {
-        parser: 'babylon',
+        printWidth: 1000,
+        tabWidth: 4,
         plugins: prettierPlugins
     }
     cm.setValue(prettier.format(cm.getValue(), Object.assign({}, defaults, options)))
 }
 window.clearContent = function() {
     editor.setValue('')
+    localStorage.setItem('content', '')
 }
 
 editor.on('change', function(e) {
-    // prettier(editor.getValue())
+    localStorage.setItem('content', editor.getValue())
 })
 
-// console.log(editor.setValue())
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('content')) {
+        editor.setValue(localStorage.getItem('content'))
+    }
+})
