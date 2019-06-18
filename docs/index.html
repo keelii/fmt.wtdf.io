@@ -8,17 +8,23 @@
     <style>
     .btn, .select, .input { margin-bottom: 0; vertical-align: middle; }
 
+    .container, body, html { height: 100%; }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-bottom: 4em;
+    }
+    #topbar {
+        padding: 1em 0;
+    }
+    #editor {
+        flex-grow: 1;
+    }
     #editor .CodeMirror {
         font-family: var(--font-mono), monospace;
         border: 1px solid #ddd;
-        height: auto;
-        height: 70vh;
-    }
-
-    .CodeMirror-scroll {
-        height: auto;
-        overflow-y: hidden;
-        overflow-x: auto;
+        height: 100%;
     }
 
     #editor .CodeMirror-empty { color: #ccc; }
@@ -26,21 +32,21 @@
 
     <link rel="manifest" href="/manifest.json" />
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((reg) => {
-                        console.log('Service worker registered.')
-                    })
-            })
-        }
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/sw.js')
+        //             .then((reg) => {
+        //                 console.log('Service worker registered.')
+        //             })
+        //     })
+        // }
     </script>
 </head>
 <body>
     
     <div class="container">
-        <br>
-        <div class="valign">
+        
+        <div id="topbar" class="valign">
             <span>
                 <button class="btn" onclick="format(editor)">Format</button>　
                 <button class="btn outline" onclick="clearContent()">clear</button>　
@@ -78,7 +84,7 @@
                 </span> -->
             </form>
         </div>
-        <br>
+        
         <div id="editor"></div>
     </div>
 
