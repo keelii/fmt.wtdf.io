@@ -3,12 +3,12 @@ __CACHE_URLS__ = [
     "/",
     "/index.css",
     "/index.js",
-    "http://code.bdstatic.com/npm/@wtdf/joshua@0.0.12/dist/joshua.min.css",
-    "http://code.bdstatic.com/npm/prettier@1.18.0/standalone.js",
-    "http://code.bdstatic.com/npm/prettier@1.18.0/parser-babylon.js",
-    "http://code.bdstatic.com/npm/prettier@1.18.0/parser-markdown.js",
-    "http://code.bdstatic.com/npm/prettier@1.18.2/parser-html.js",
-    "http://code.bdstatic.com/npm/prettier@1.18.2/parser-postcss.js",
+    "https://code.bdstatic.com/npm/@wtdf/joshua@0.0.12/dist/joshua.min.css",
+    "https://code.bdstatic.com/npm/prettier@1.18.0/standalone.js",
+    "https://code.bdstatic.com/npm/prettier@1.18.0/parser-babylon.js",
+    "https://code.bdstatic.com/npm/prettier@1.18.0/parser-markdown.js",
+    "https://code.bdstatic.com/npm/prettier@1.18.2/parser-html.js",
+    "https://code.bdstatic.com/npm/prettier@1.18.2/parser-postcss.js",
     "https://fonts.loli.net/css?family=PT+Serif:400|PT+Serif:400&display=swap",
     "https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap"
 ]
