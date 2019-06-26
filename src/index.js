@@ -67,7 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.format = function (cm) {
         let options = fmtOption()
         let defaults = {
-            printWidth: 1000,
+            printWidth: 125,
             tabWidth: 4,
             plugins: prettierPlugins
         }
