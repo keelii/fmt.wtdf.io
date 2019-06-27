@@ -58,12 +58,20 @@
                         <option value="less">less</option>
                         <option value="scss">scss</option>
                         <option value="json">json</option>
-                        <!-- <option value="json-stringify">json-stringify</option> -->
                         <option value="markdown">markdown</option>
-                        <!-- <option value="mdx">mdx</option> -->
-                        <!-- <option value="vue">vue</option> -->
                         <option value="html">html</option>
                     </select>　
+                    <script>
+                        (function(loc) {
+                            var match = loc.match(/type=\w+/)
+                            if (match && match.length) {
+                                var type = match[0].split('=')[1]
+                                if (type) {
+                                    document.getElementById('parser').value = type
+                                }
+                            }
+                        })(window.location.href);
+                    </script>
                 </span>
                 <span class="custom-input">
                     <input type="checkbox" id="use-tabs" name="use-tabs">
