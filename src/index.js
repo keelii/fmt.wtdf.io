@@ -71,7 +71,13 @@ window.addEventListener('DOMContentLoaded', () => {
             tabWidth: 4,
             plugins: prettierPlugins
         }
-        cm.setValue(prettier.format(cm.getValue(), Object.assign({}, defaults, options)))
+
+        try {
+            cm.setValue(prettier.format(cm.getValue(), Object.assign({}, defaults, options)))    
+        } catch (error) {
+            console.error(error)
+            alert(error)
+        }
     }
 
     window.clearContent = function () {
