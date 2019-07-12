@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="/index.css">
     <style>
     .btn, .select, .input { margin-bottom: 0; vertical-align: middle; }
-
-    .container, body, html { height: 100%; }
-    .container {
-        display: flex;
+    body, html, .container, .row { height: 100%!important; }
+    .row { 
         flex-direction: column;
+        flex-wrap: initial;
     }
-    #topbar {
-        padding: 1em 0;
-    }
+    .topbar { margin-top: var(--line-height); }
+
     #editor {
         flex-grow: 1;
-        padding-bottom: 2em;
     }
     #editor .CodeMirror {
         font-family: var(--font-mono), monospace;
@@ -44,55 +41,54 @@
 <body>
     
     <div class="container">
-        
-        <div id="topbar" class="valign">
-            <span>
-                <button class="btn" onclick="format(editor)">Format</button>　
-                <button class="btn outline" onclick="clearContent()">clear</button>　
-            </span>
-            <form id="fmt-form">
-                <span>
-                    <select title="type" onchange="changeMode(this)" class="select" name="parser" id="parser">
-                        <option value="babel">babel</option>
-                        <option value="css">css</option>
-                        <option value="less">less</option>
-                        <option value="scss">scss</option>
-                        <option value="json">json</option>
-                        <option value="markdown">markdown</option>
-                        <option value="html">html</option>
-                    </select>　
-                    <script>
-                        (function(loc) {
-                            var match = loc.match(/type=\w+/)
-                            if (match && match.length) {
-                                var type = match[0].split('=')[1]
-                                if (type) {
-                                    document.getElementById('parser').value = type
-                                }
-                            }
-                        })(window.location.href);
-                    </script>
-                </span>
-                <span class="custom-input">
-                    <input type="checkbox" id="use-tabs" name="use-tabs">
-                    <label for="use-tabs">Use tabs</label>
-                </span>　
-                <span class="custom-input">
-                    <input type="checkbox" id="semi" name="semi">
-                    <label for="semi">Semi</label>
-                </span>　
-                <span class="custom-input">
-                    <input type="checkbox" id="single-quote" name="single-quote" checked>
-                    <label for="single-quote">Single quote</label>
-                </span>　
-                <!-- <span>
-                    <label for="tab-width">Tab width </label>
-                    <input style="width:4em" class="input" type="number" value="4" id="tab-width" name="tab-width">
-                </span> -->
-            </form>
+        <div class="row">
+            <div class="col-1">
+                <div class="topbar valign">
+                    <!-- <h3>FE Formatter</h3> -->
+                    <span>
+                        <button class="btn" onclick="format(editor)">Format</button>　
+                        <button class="btn outline" onclick="clearContent()">clear</button>　
+                    </span>
+                    <form id="fmt-form">
+                        <span>
+                            <select title="type" onchange="changeMode(this)" class="select" name="parser" id="parser">
+                                <option value="babel">babel</option>
+                                <option value="css">css</option>
+                                <option value="less">less</option>
+                                <option value="scss">scss</option>
+                                <option value="json">json</option>
+                                <option value="markdown">markdown</option>
+                                <option value="html">html</option>
+                            </select>　
+                            <script>
+                                (function(loc) {
+                                    var match = loc.match(/type=\w+/)
+                                    if (match && match.length) {
+                                        var type = match[0].split('=')[1]
+                                        if (type) {
+                                            document.getElementById('parser').value = type
+                                        }
+                                    }
+                                })(window.location.href);
+                            </script>
+                        </span>
+                        <span class="custom-input">
+                            <input type="checkbox" id="use-tabs" name="use-tabs">
+                            <label for="use-tabs">Use tabs</label>
+                        </span>　
+                        <span class="custom-input">
+                            <input type="checkbox" id="semi" name="semi">
+                            <label for="semi">Semi</label>
+                        </span>　
+                        <span class="custom-input">
+                            <input type="checkbox" id="single-quote" name="single-quote" checked>
+                            <label for="single-quote">Single quote</label>
+                        </span>　
+                    </form>
+                </div>
+            </div>
+            <div id="editor" class="col-1"></div>
         </div>
-        
-        <div id="editor"></div>
     </div>
 
     <script src="//code.bdstatic.com/npm/prettier@1.18.0/standalone.js"></script>
