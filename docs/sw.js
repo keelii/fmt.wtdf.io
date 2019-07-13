@@ -1,4 +1,4 @@
-__CACHE_VER__ = "fmt.wtdf.io_v1.0.4"
+__CACHE_VER__ = "fmt.wtdf.io_v1.1.4"
 __CACHE_URLS__ = [
     "/",
     "/index.css",
@@ -10,7 +10,8 @@ __CACHE_URLS__ = [
     "https://code.bdstatic.com/npm/prettier@1.18.2/parser-html.js",
     "https://code.bdstatic.com/npm/prettier@1.18.2/parser-postcss.js",
     "https://fonts.loli.net/css?family=PT+Serif:400|PT+Serif:400&display=swap",
-    "https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap"
+    "https://fonts.loli.net/css?family=Source+Serif+Pro:400,600,700&display=swap",
+    "https://www.googletagmanager.com/gtag/js?id=UA-79264835-8"
 ]
 
 self.addEventListener('install', function(evt) {
