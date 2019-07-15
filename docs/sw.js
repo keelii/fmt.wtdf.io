@@ -1,4 +1,4 @@
-__CACHE_VER__ = "fmt.wtdf.io_v1.1.4"
+__CACHE_VER__ = "fmt.wtdf.io_v1.1.5"
 __CACHE_URLS__ = [
     "/",
     "/index.css",
